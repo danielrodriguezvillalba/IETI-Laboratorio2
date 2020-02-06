@@ -28,9 +28,20 @@ class App extends Component {
             <Login/>
         );
 
+
         const TodoAppView = () => (
             <TodoApp/>
         );
+
+        this.state = {
+            LoginView: LoginView,
+            TodoAppView: TodoAppView,
+            isLoggedIn: false
+        };
+
+
+
+
         return (
             <Router>
                 <div className="App">
@@ -48,8 +59,8 @@ class App extends Component {
                     </ul>
 
                     <div>
-                        <Route exact path="/" component={LoginView}/>
-                        <Route path="/todo" component={TodoAppView}/>
+                        <Route exact path="/" component={this.state.LoginView}/>
+                        <Route path="/todo" component={this.state.TodoAppView}/>
                     </div>
                 </div>
             </Router>
